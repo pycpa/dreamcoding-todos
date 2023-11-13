@@ -1,0 +1,9 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.todoDone {
+  text-decoration: line-through;
+}

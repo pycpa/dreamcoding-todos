@@ -1,0 +1,24 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #3a4d39;
+  color: white;
+}
+
+.mode {
+  padding: 10px;
+}
+
+.filter {
+  display: flex;
+  margin: 3px;
+}
+
+.filterItem {
+  padding: 10px;
+}
+
+.selectedFilter {
+  color: #739072;
+}
