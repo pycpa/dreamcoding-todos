@@ -1,6 +1,6 @@
 import { FiSun } from "react-icons/fi";
-import styles, { filter } from "./Header.module.css";
-import { useContext, useState } from "react";
+import styles from "./Header.module.css";
+import { useContext } from "react";
 import {
   DarkModeContext,
   DarkModeContextType,
@@ -12,9 +12,7 @@ type HeaderProps = {
 };
 
 export default function Header({ filter, onChangeFilter }: HeaderProps) {
-  const { darkMode, handleDarkMode } = useContext(
-    DarkModeContext
-  ) as DarkModeContextType;
+  const { handleDarkMode } = useContext(DarkModeContext) as DarkModeContextType;
 
   return (
     <header className={styles.container}>
