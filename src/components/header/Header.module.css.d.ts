@@ -1,9 +1,9 @@
 declare const styles: {
-  readonly "container": string;
   readonly "filter": string;
-  readonly "filterItem": string;
-  readonly "mode": string;
-  readonly "selectedFilter": string;
+  readonly "filters": string;
+  readonly "header": string;
+  readonly "selected": string;
+  readonly "toggle": string;
 };
 export = styles;
 

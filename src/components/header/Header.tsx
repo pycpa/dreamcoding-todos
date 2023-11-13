@@ -1,53 +1,41 @@
-import { FiSun } from "react-icons/fi";
+import { HiSun, HiMoon } from "react-icons/hi";
 import styles from "./Header.module.css";
-import { useContext } from "react";
-import {
-  DarkModeContext,
-  DarkModeContextType,
-} from "../../context/DarkModeContexst";
+import { FILTERS, filters } from "../App";
+import { useDarkMode } from "../../context/DarkModeContext";
 
 type HeaderProps = {
-  filter: boolean | undefined;
-  onChangeFilter: (filter: boolean | undefined) => void;
+  filters: typeof filters;
+  filter: FILTERS;
+  onChangeFilter: React.Dispatch<React.SetStateAction<FILTERS>>;
 };
 
-export default function Header({ filter, onChangeFilter }: HeaderProps) {
-  const { handleDarkMode } = useContext(DarkModeContext) as DarkModeContextType;
+export default function Header({
+  filters,
+  filter,
+  onChangeFilter,
+}: HeaderProps) {
+  const { darkMode, toggleDarkMode } = useDarkMode();
 
   return (
-    <header className={styles.container}>
-      <FiSun
-        onClick={handleDarkMode}
-        color="white"
-        size={20}
-        className={styles.mode}
-      />
+    <header className={styles.header}>
+      <button onClick={toggleDarkMode} className={styles.toggle}>
+        {darkMode && <HiMoon />}
+        {!darkMode && <HiSun />}
+      </button>
       <div>
-        <ul className={styles.filter}>
-          <li
-            className={`${styles.filterItem} ${
-              filter === undefined && styles.selectedFilter
-            }`}
-            onClick={() => onChangeFilter(undefined)}
-          >
-            All
-          </li>
-          <li
-            className={`${styles.filterItem} ${
-              filter === false && styles.selectedFilter
-            }`}
-            onClick={() => onChangeFilter(false)}
-          >
-            Active
-          </li>
-          <li
-            className={`${styles.filterItem} ${
-              filter === true && styles.selectedFilter
-            }`}
-            onClick={() => onChangeFilter(true)}
-          >
-            Completed
-          </li>
+        <ul className={styles.filters}>
+          {filters.map((value, index) => (
+            <li key={index}>
+              <button
+                onClick={() => onChangeFilter(value)}
+                className={`${styles.filter} ${
+                  value === filter && styles.selected
+                }`}
+              >
+                {value}
+              </button>
+            </li>
+          ))}
         </ul>
       </div>
     </header>

@@ -1,24 +1,49 @@
-.container {
+.header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #3a4d39;
-  color: white;
+  background-color: var(--color-bg-dark);
+  border-bottom: 1px solid var(--color-grey);
+  padding: 0 0.7rem;
 }
 
-.mode {
-  padding: 10px;
+.toggle {
+  font-size: 1.5rem;
+  cursor: pointer;
+  background-color: transparent;
+  color: var(--color-text);
+}
+
+.toggle:hover {
+  transform: scale(1.1);
+  color: var(--color-accent);
+}
+
+.filters {
+  display: flex;
+  margin: 3px;
+  cursor: pointer;
 }
 
 .filter {
-  display: flex;
-  margin: 3px;
+  font-size: 1.2rem;
+  margin: 0.3rem;
+  text-transform: capitalize;
+  background-color: transparent;
+  color: var(--color-accent);
+  /* 글자를 약간 흐리게 표현 */
+  opacity: 0.8;
+  font-weight: bold;
 }
 
-.filterItem {
-  padding: 10px;
+.filter:hover,
+.filter.selected {
+  opacity: 1;
 }
 
-.selectedFilter {
-  color: #739072;
+.filter.selected::after {
+  content: "";
+  display: block;
+  margin-top: 0.2rem;
+  border: 1px solid var(--color-text);
 }

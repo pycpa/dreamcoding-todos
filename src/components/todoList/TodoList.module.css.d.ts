@@ -1,6 +1,6 @@
 declare const styles: {
   readonly "container": string;
-  readonly "todoDone": string;
+  readonly "list": string;
 };
 export = styles;
 
